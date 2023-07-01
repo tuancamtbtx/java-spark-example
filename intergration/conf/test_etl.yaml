@@ -1,0 +1,18 @@
+test_etl:
+    sparkConf:
+        appName: "test_etl"
+        master: "local[*]"
+    source:
+        format: parquet
+        connection: "hdfs://localhost:9000/output.parquet"
+        schema: "id int, name string"
+    transform:
+        - type: filter
+          condition: "col('id') == 1"
+        - type: select
+          columns: ["id", "name"]
+        - type: map
+          function: "lambda x: x + 1"
+    sink:
+        connection: "gcs://test/output.parquet"
+        format: parquet
