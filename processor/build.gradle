@@ -19,6 +19,9 @@ dependencies {
     implementation("org.slf4j:slf4j-reload4j:1.7.36")
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.20.0'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.20.0'
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
+    implementation(project(":core"))
+
 }
 
 test {
