@@ -1,6 +1,5 @@
 version: 1.0.0
 job:
-  - name: test_etl
     sparkConf:
         appName: "test_etl"
         master: "local[*]"
