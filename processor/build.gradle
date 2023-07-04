@@ -21,6 +21,7 @@ dependencies {
     implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.20.0'
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.28'
     implementation(project(":core"))
+    implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.15.2'
 
 }
 

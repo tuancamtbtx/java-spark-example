@@ -1,6 +1,6 @@
-package com.spark.etl.processor.app;
+package vn.bigdata.spark.etl.processor.app;
 
-import com.spark.etl.processor.entity.ETLPipelineConfig;
+import vn.bigdata.spark.etl.processor.entity.ETLPipelineConfig;
 import org.apache.spark.sql.SparkSession;
 import org.slf4j.Logger;
 import scala.collection.immutable.Map;

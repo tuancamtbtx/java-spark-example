@@ -3,17 +3,17 @@ job:
     sparkConf:
         appName: "test_etl"
         master: "local[*]"
-    source:
+    sourceConf:
         format: parquet
         path: "hdfs://localhost:9000/output.parquet"
         schema: "id int, name string"
-    transform:
+    transformConf:
         - type: filter
           condition: "col('id') == 1"
         - type: select
           columns: ["id", "name"]
         - type: map
           function: "lambda x: x + 1"
-    sink:
+    sinkConf:
         connection: "gcs://test/output.parquet"
         format: parquet

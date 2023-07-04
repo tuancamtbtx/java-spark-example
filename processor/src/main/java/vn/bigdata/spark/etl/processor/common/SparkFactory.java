@@ -1,4 +1,4 @@
-package com.spark.etl.processor.common;
+package vn.bigdata.spark.etl.processor.common;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.sql.SparkSession;
