@@ -24,12 +24,6 @@ public class ETLPipelineConfig implements Serializable {
     @JsonProperty
     ETLJobConfig job;
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
-    public void setETLJobConfig(ETLJobConfig job) {
-        this.job = job;
-    }
     public String toString() {
         return "ETLPipelineConfig{" +
                 "version='" + version + '\'' +
@@ -39,6 +33,5 @@ public class ETLPipelineConfig implements Serializable {
     public ETLPipelineConfig loadData(String fileConf) throws IOException {
         final ObjectMapper mapper = new ObjectMapper(new YAMLFactory()); // jackson databind
         return mapper.readValue(new File(fileConf), ETLPipelineConfig.class);
-
     }
 }

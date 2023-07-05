@@ -16,7 +16,6 @@ public class ETLProcessor extends ETLProcessAbstract {
     public static void main(String[] args) throws IOException {
         String fileConf = EnvUtil.getEnv("ETL_CONF_FILE", "/Users/tuan.nguyen3/Documents/Personal-Projects/spark-etl-tool/jobs_config/conf/test_etl.yaml");
         LOGGER.info("Starting ETL Processor with file conf {}", fileConf);
-
         if(StringUtil.isEmpty(fileConf)) {
             LOGGER.error("ETL_CONF_FILE is not set");
             System.exit(1);
