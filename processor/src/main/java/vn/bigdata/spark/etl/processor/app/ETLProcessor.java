@@ -2,6 +2,8 @@ package vn.bigdata.spark.etl.processor.app;
 
 import com.spark.etl.core.util.EnvUtil;
 import com.spark.etl.core.util.StringUtil;
+import org.apache.spark.sql.SparkSession;
+import vn.bigdata.spark.etl.processor.common.SparkFactory;
 import vn.bigdata.spark.etl.processor.entity.ETLPipelineConfig;
 
 import org.slf4j.Logger;
@@ -19,9 +21,9 @@ public class ETLProcessor extends ETLProcessAbstract {
             LOGGER.error("ETL_CONF_FILE is not set");
             System.exit(1);
         }
-//        SparkSession spark = SparkFactory.createSparkSession(null);
-//        run(spark, new ETLPipelineConfig().loadData(fileConf));
-        new ETLPipelineConfig().loadData(fileConf);
-
+        ETLPipelineConfig etlPipelineConfig = new ETLPipelineConfig().loadData(fileConf);
+        LOGGER.info("ETL Pipeline Config: {}", etlPipelineConfig);
+        SparkSession spark = SparkFactory.createSparkSession(null);
+        run(spark, etlPipelineConfig);
     }
 }

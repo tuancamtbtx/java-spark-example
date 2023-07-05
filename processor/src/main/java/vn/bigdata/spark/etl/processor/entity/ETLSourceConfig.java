@@ -1,10 +1,15 @@
 package vn.bigdata.spark.etl.processor.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 
 public class ETLSourceConfig implements Serializable {
+    @JsonProperty
     String format;
+    @JsonProperty
     String path;
+    @JsonProperty
     String schema;
 
     @Override

@@ -18,9 +18,9 @@ public class SparkFactory {
         } else {
             conf.setAppName("Spark ETL Tool")
                     .setMaster("local[*]")
+                    .set("hive.metastore.warehouse.dir", "tmp")
                     .setAll(JavaConversions.mapAsScalaMap(options));
         }
-
         return builder
                 .config(conf)
                 .getOrCreate();
