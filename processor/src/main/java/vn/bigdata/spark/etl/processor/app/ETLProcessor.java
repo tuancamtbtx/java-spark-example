@@ -21,8 +21,8 @@ public class ETLProcessor extends ETLProcessAbstract {
             System.exit(1);
         }
         ETLPipelineConfig etlPipelineConfig = new ETLPipelineConfig().loadData(fileConf);
-        LOGGER.info("ETL Pipeline Config: {}", etlPipelineConfig);
-        SparkSession spark = SparkFactory.createSparkSession(null);
+        LOGGER.info("ETL Pipeline Config: {}", etlPipelineConfig.getVersion());
+        SparkSession spark = SparkFactory.createSparkSession(etlPipelineConfig);
         run(spark, etlPipelineConfig);
     }
 }

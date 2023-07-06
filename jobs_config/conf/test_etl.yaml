@@ -3,6 +3,10 @@ job:
     sparkConf:
         appName: "test_etl"
         master: "local[*]"
+        conf:
+            spark.sql.shuffle.partitions: 10
+            spark.sql.autoBroadcastJoinThreshold: -1
+            hive.metadata.warehouse.dir: "hdfs://localhost:9000/user/hive/warehouse"
     sourceConf:
         format: parquet
         path: "hdfs://localhost:9000/output.parquet"

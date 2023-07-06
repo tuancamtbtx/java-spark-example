@@ -1,10 +1,17 @@
 package vn.bigdata.spark.etl.processor.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ETLTransformConfig {
+@Data
+@Getter
+@Setter
+public class ETLTransformConfig implements Serializable {
     @JsonProperty
     String type;
     @JsonProperty

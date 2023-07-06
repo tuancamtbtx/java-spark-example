@@ -9,10 +9,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.yaml.snakeyaml.Yaml;
 
 import java.io.*;
-import java.util.Map;
 
 @Data
 @Getter
@@ -23,7 +21,6 @@ public class ETLPipelineConfig implements Serializable {
     String version;
     @JsonProperty
     ETLJobConfig job;
-
     public String toString() {
         return "ETLPipelineConfig{" +
                 "version='" + version + '\'' +
