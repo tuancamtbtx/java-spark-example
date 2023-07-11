@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scala.collection.JavaConversions;
 import vn.bigdata.spark.etl.processor.app.ETLProcessor;
+import vn.bigdata.spark.etl.processor.config.ConfigKey;
 import vn.bigdata.spark.etl.processor.entity.ETLPipelineConfig;
 import vn.bigdata.spark.etl.processor.entity.ETLSparkConfig;
 
@@ -27,13 +28,18 @@ public class SparkFactory {
                     .master("local[*]")
                     .getOrCreate();
         } else {
+            String hiveSupport = options.getOrDefault(ConfigKey.ENABLE_HIVE_SUPPORT,options.get("spark.sql.warehouse.dir"));
+            String checkpointDir = options.get(ConfigKey.checkpointDir);
+            String cleanCheckpoints = options.get(ConfigKey.cleanCheckpoints);
             LOGGER.info("Creating `SparkSession` with options: {}", options.toString().replace("=", " -> ").replace(", ", "\n"));
             conf.setAppName(jobName)
                     .setMaster(master)
                     .setAll(JavaConversions.mapAsScalaMap(options));
         }
-        return builder
+        SparkSession spark =  builder
                 .config(conf)
                 .getOrCreate();
+        spark.sparkContext().setCheckpointDir("path");
+        return spark;
     }
 }

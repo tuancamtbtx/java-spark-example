@@ -24,6 +24,8 @@ dependencies {
     implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.15.2'
     annotationProcessor "org.projectlombok:lombok:1.18.28"
     testAnnotationProcessor("org.projectlombok:lombok:1.18.8")
+    implementation group: 'com.google.inject', name: 'guice', version: '4.0'
+
 }
 
 test {
