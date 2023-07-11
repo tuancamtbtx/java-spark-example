@@ -8,9 +8,10 @@ job:
             spark.sql.autoBroadcastJoinThreshold: -1
             hive.metadata.warehouse.dir: "hdfs://localhost:9000/user/hive/warehouse"
     sourceConf:
-        format: parquet
-        path: "hdfs://localhost:9000/output.parquet"
-        schema: "id int, name string"
+          name: "test"
+          format: csv
+          path: "/Users/tuan.nguyen3/Documents/Personal-Projects/spark-etl-tool/integration/data/test.csv"
+          schema: "id int, name string"
     transformConf:
         - type: filter
           condition: "col('id') == 1"

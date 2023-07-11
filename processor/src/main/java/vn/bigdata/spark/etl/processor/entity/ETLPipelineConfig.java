@@ -3,14 +3,16 @@ package vn.bigdata.spark.etl.processor.entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import vn.bigdata.spark.etl.processor.app.ETLProcessor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import vn.bigdata.spark.etl.processor.app.ETLProcessor;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
 
 @Data
 @Getter

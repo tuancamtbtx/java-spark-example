@@ -5,7 +5,6 @@ import org.apache.spark.sql.SparkSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scala.collection.JavaConversions;
-import vn.bigdata.spark.etl.processor.app.ETLProcessor;
 import vn.bigdata.spark.etl.processor.config.ConfigKey;
 import vn.bigdata.spark.etl.processor.entity.ETLPipelineConfig;
 import vn.bigdata.spark.etl.processor.entity.ETLSparkConfig;

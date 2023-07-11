@@ -12,6 +12,8 @@ import java.io.Serializable;
 @Setter
 public class ETLSourceConfig implements Serializable {
     @JsonProperty
+    String name;
+    @JsonProperty
     String format;
     @JsonProperty
     String path;
